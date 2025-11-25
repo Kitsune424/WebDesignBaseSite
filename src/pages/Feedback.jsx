@@ -116,7 +116,8 @@ function Feedback() {
             <div className="form-hint">Опишите вашу проблему или вопрос подробно</div>
           </div>
 
-          <button type="submit" className="greenButton">
+          {/* lab9 google: изменен класс greenButton → green-button */}
+          <button type="submit" className="green-button">
             Отправить сообщение
           </button>
         </form>

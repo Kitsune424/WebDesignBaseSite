@@ -49,7 +49,7 @@ function Login() {
     width: '100%',
     boxSizing: 'border-box',
     outline: 'none',
-    transition: 'border-color 0.1s ease-in-out'
+    transition: 'border-color .1s ease-in-out'
   });
 
   const getButtonStyle = (isHovered, backgroundColor) => ({
@@ -63,13 +63,13 @@ function Login() {
     fontWeight: '500',
     cursor: 'pointer',
     marginTop: 'auto',
-    transition: 'background 0.1s ease-in-out'
+    transition: 'background .1s ease-in-out'
   });
 
   const lightenColor = (color, percent) => {
     // Простая функция для осветления цвета
-    if (color === '#9dd558') return '#a8e05e';
-    if (color === '#7b68ee') return '#8875ff';
+    if (color === '#9dd558') return '#a8e';
+    if (color === '#7b68ee') return '#875';
     return color;
   };
 
@@ -145,7 +145,7 @@ function Login() {
           flexDirection: 'column'
         }}>
           <h2 style={{ margin: '0 0 30px 0', fontSize: '22px' }}>Нет аккаунта?</h2>
-          <p style={{ marginBottom: '20px', opacity: '0.6' }}>
+          <p style={{ marginBottom: '20px', opacity: '.6' }}>
             Зарегистрируйтесь, чтобы получить доступ ко всем функциям магазина:
           </p>
           <ul style={{ paddingLeft: '20px', marginBottom: '30px', flex: 1 }}>

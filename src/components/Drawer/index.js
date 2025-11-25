@@ -5,11 +5,13 @@ import styles from './Drawer.module.scss';
 // Временная реализация Info прямо в файле
 const Info = ({ title, image, description, onClose }) => {
   return (
-    <div className="cartEmpty d-flex align-center justify-center flex-column flex">
+    // lab9 google: изменен класс cartEmpty → cart-empty
+    <div className="cart-empty d-flex align-center justify-center flex-column flex">
       <img className="mb-20" width="120px" src={image} alt="Empty" />
       <h2>{title}</h2>
       <p className="opacity-6">{description}</p>
-      <button onClick={onClose} className="greenButton">
+      {/* lab9 google: изменен класс greenButton → green-button */}
+      <button onClick={onClose} className="green-button">
         <img src="/img/arrow.svg" alt="Arrow" />
         Вернуться назад
       </button>
@@ -22,6 +24,19 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
+
+  // Блокируем скролл основного контента при открытой корзине
+  React.useEffect(() => {
+    if (opened) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [opened]);
 
   const onClickOrder = async () => {
     try {
@@ -60,8 +75,18 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
     setIsLoading(false);
   };
 
+  // Обработчик клика по overlay
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
+    <div 
+      className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}
+      onClick={handleOverlayClick}
+    >
       <div className={styles.drawer}>
         <h2 className="d-flex justify-between mb-30">
           Корзина <img onClick={onClose} className="cu-p" src="/img/btn-remove.svg" alt="Close" />
@@ -69,27 +94,31 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
 
         {items.length > 0 && !isOrderComplete ? (
           <div className="d-flex flex-column flex">
-            <div className="items flex">
+            <div className={styles.items}>
               {items.map((obj) => (
-                <div key={obj.id} className="cartItem d-flex align-center mb-20">
+                // lab9 google: изменен класс cartItem → cart-item
+                <div key={obj.id} className="cart-item d-flex align-center mb-20">
+                  {/* lab9 google: изменен класс cartItemImg → cart-item-img */}
                   <div
                     style={{ backgroundImage: `url(${obj.imageUrl})` }}
-                    className="cartItemImg"></div>
+                    className="cart-item-img"></div>
 
                   <div className="mr-20 flex">
                     <p className="mb-5">{obj.title}</p>
                     <b>{obj.price} руб.</b>
                   </div>
+                  {/* lab9 google: изменен класс removeBtn → remove-btn */}
                   <img
                     onClick={() => onRemove(obj.id)}
-                    className="removeBtn"
+                    className="remove-btn"
                     src="/img/btn-remove.svg"
                     alt="Remove"
                   />
                 </div>
               ))}
             </div>
-            <div className="cartTotalBlock">
+            {/* lab9 google: изменен класс cartTotalBlock → cart-total-block */}
+            <div className="cart-total-block">
               <ul>
                 <li>
                   <span>Итого:</span>
@@ -102,7 +131,8 @@ function Drawer({ onClose, onRemove, items = [], opened }) {
                   <b>{Math.round(totalPrice * 0.05)} руб. </b>
                 </li>
               </ul>
-              <button disabled={isLoading} onClick={onClickOrder} className="greenButton">
+              {/* lab9 google: изменен класс greenButton → green-button */}
+              <button disabled={isLoading} onClick={onClickOrder} className="green-button">
                 Оформить заказ <img src="/img/arrow.svg" alt="Arrow" />
               </button>
             </div>

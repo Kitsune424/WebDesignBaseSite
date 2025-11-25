@@ -14,9 +14,9 @@ body {
 }
 
 .wrapper {
-  background: #ffffff;
+  background: #fff;
   /* LAB8: ТЕНИ - тень блока */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
   border-radius: 20px;
   max-width: 1080px;
   margin: 50px auto;
@@ -25,6 +25,7 @@ body {
 header {
   /* LAB8: РАМКИ - нижняя граница хедера */
   border-bottom: 1px solid #eaeaea;
+  
   img {
     margin-right: 15px;
   }
@@ -41,7 +42,7 @@ header {
   }
 }
 
-.cartEmpty {
+.cart-empty {
   text-align: center;
 
   p {
@@ -49,7 +50,7 @@ header {
     line-height: 24px;
   }
 
-  .greenButton {
+  .green-button {
     width: 245px;
     margin-top: 20px;
 
@@ -66,7 +67,7 @@ header {
       transform: rotate(180deg);
       margin-right: 15px;
       /* LAB8: ПЕРЕХОДЫ - плавная анимация трансформации */
-      transition: transform 0.15s ease-in-out;
+      transition: transform .15s ease-in-out;
     }
   }
 }
@@ -120,12 +121,14 @@ header {
     }
   }
   
+  /* lab9 google: пробел после двоеточия */
   input[type="radio"] {
     margin-right: 8px;
   }
 }
 
-.login-form, .registration-promo {
+.login-form,
+.registration-promo {
   /* LAB8: РАМКИ - границы блоков формы */
   border: 1px solid #f3f3f3;
   border-radius: 20px;
@@ -170,7 +173,8 @@ header {
   }
 }
 
-.greenButton {
+/* lab9 google: переименован в kebab-case */
+.green-button {
   width: 100%;
   height: 55px;
   background: #9dd558;
@@ -181,7 +185,7 @@ header {
   font-weight: 500;
   cursor: pointer;
   /* LAB8: ПЕРЕХОДЫ - плавное изменение фона */
-  transition: background 0.1s ease-in-out;
+  transition: background .1s ease-in-out;
 
   &:disabled {
     background-color: #bebebe !important;
@@ -189,11 +193,12 @@ header {
   }
 
   &:hover {
-    background: lighten(#9dd558, 5%);
+    /* lab9 google: трехсимвольная hex запись цвета */
+    background: #a8e;
   }
 
   &:active {
-    background: darken(#9dd558, 5%);
+    background: #8bc;
   }
 }
 
@@ -226,7 +231,7 @@ header {
       width: 100%;
       box-sizing: border-box;
       /* LAB8: ПЕРЕХОДЫ - плавное изменение цвета границы */
-      transition: border-color 0.1s ease-in-out;
+      transition: border-color .1s ease-in-out;
       
       &:focus {
         border-color: #9dd558;
@@ -234,13 +239,14 @@ header {
       }
       
       &:invalid:not(:focus):not(:placeholder-shown) {
-        border-color: #ff6b6b;
+        /* lab9 google: трехсимвольная hex запись цвета */
+        border-color: #f66;
       }
     }
   }
 }
 
-.cartTotalBlock {
+.cart-total-block {
   ul {
     display: block;
     margin-bottom: 40px !important;
@@ -262,12 +268,12 @@ header {
     }
   }
 
-  .greenButton {
+  .green-button {
     position: relative;
 
     &:disabled {
       /* LAB8: CSS-АНИМАЦИИ - анимация загрузки кнопки */
-      animation: button-loading 0.6s ease-in-out infinite;
+      animation: button-loading .6s ease-in-out infinite;
     }
 
     &:hover {
@@ -282,19 +288,19 @@ header {
       right: 30px;
       top: 20px;
       /* LAB8: ПЕРЕХОДЫ - плавная анимация трансформации */
-      transition: transform 0.15s ease-in-out;
+      transition: transform .15s ease-in-out;
     }
   }
 }
 
-.cartItem {
+.cart-item {
   /* LAB8: РАМКИ - граница элемента корзины */
   border: 1px solid #f3f3f3;
   border-radius: 20px;
   overflow: hidden;
   padding: 20px;
 
-  .cartItemImg {
+  .cart-item-img {
     height: 70px;
     width: 70px;
     background-size: contain;
@@ -312,11 +318,11 @@ header {
     font-size: 14px;
   }
 
-  .removeBtn {
-    opacity: 0.5;
+  .remove-btn {
+    opacity: .5;
     cursor: pointer;
     /* LAB8: ПЕРЕХОДЫ - плавное изменение прозрачности */
-    transition: opacity 0.15s ease-in-out;
+    transition: opacity .15s ease-in-out;
 
     &:hover {
       opacity: 1;
@@ -330,7 +336,7 @@ header {
     opacity: 1;
   }
   50% {
-    opacity: 0.7;
+    opacity: .7;
   }
   100% {
     opacity: 1;
@@ -347,7 +353,7 @@ header {
   margin-right: 30px;
   margin-bottom: 30px;
   /* LAB8: ПЕРЕХОДЫ - плавные анимации тени и трансформации */
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
 
   .plus {
     cursor: pointer;
@@ -355,7 +361,7 @@ header {
 
   &:hover {
     /* LAB8: ТЕНИ - тень при наведении на карточку */
-    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, .06);
     /* LAB8: ТРАНСФОРМАЦИИ - подъем карточки при наведении */
     transform: translateY(-5px);
   }
@@ -367,7 +373,7 @@ header {
 
   span {
     font-size: 13px;
-    opacity: 0.5;
+    opacity: .5;
     text-transform: uppercase;
   }
 
@@ -433,10 +439,10 @@ header {
     padding: 20px;
   }
 
-  .cartItem {
+  .cart-item {
     padding: 15px;
     
-    .cartItemImg {
+    .cart-item-img {
       height: 60px;
       width: 60px;
       margin-right: 15px;
@@ -455,7 +461,8 @@ header {
     gap: 20px !important;
   }
 
-  .login-form, .registration-promo {
+  .login-form,
+  .registration-promo {
     padding: 20px;
   }
 
@@ -532,12 +539,12 @@ header {
   }
 
   /* LAB8: FLEXBOX - адаптация элементов корзины */
-  .cartItem {
+  .cart-item {
     flex-direction: column;
     text-align: center;
     padding: 10px;
     
-    .cartItemImg {
+    .cart-item-img {
       height: 80px;
       width: 80px;
       margin-right: 0;
@@ -550,7 +557,7 @@ header {
     }
   }
 
-  .cartTotalBlock {
+  .cart-total-block {
     ul {
       margin-bottom: 20px !important;
       
@@ -589,13 +596,14 @@ header {
     font-size: 14px;
   }
 
-  .greenButton {
+  .green-button {
     height: 50px;
     font-size: 14px;
   }
 
   /* Адаптация страницы входа */
-  .login-form, .registration-promo {
+  .login-form,
+  .registration-promo {
     padding: 15px !important;
   }
 
@@ -604,13 +612,13 @@ header {
     min-height: 100px;
   }
 
-  .cartEmpty {
+  .cart-empty {
     p {
       width: 100%;
       font-size: 14px;
     }
 
-    .greenButton {
+    .green-button {
       width: 100%;
       max-width: 280px;
     }
