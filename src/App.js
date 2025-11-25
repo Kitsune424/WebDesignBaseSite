@@ -7,6 +7,8 @@ import AppContext from './context';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import Orders from './pages/Orders';
+import Registration from './pages/Registration';
+import Login from './pages/Login'; // Добавьте этот импорт
 
 function App() {
   const [items, setItems] = React.useState([
@@ -196,6 +198,8 @@ function App() {
           />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/profile" element={<Login />} />
         </Routes>
       </div>
     </AppContext.Provider>
