@@ -17,6 +17,11 @@ function Header(props) {
         </div>
       </Link>
       <ul className="d-flex">
+        <li className="mr-20 cu-p">
+          <Link to="/icons" aria-label="Библиотека иконок">
+            <img width={18} height={18} src="/img/grid.svg" alt="Иконки" />
+          </Link>
+        </li>
         <li onClick={props.onClickCart} className="mr-30 cu-p">
           <img width={18} height={18} src="/img/cart.svg" alt="Корзина" />
           <span>{totalPrice} руб.</span>

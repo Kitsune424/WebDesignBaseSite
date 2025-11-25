@@ -10,6 +10,8 @@ import Orders from './pages/Orders';
 import Registration from './pages/Registration';
 import Login from './pages/Login'; 
 import Feedback from './pages/Feedback';
+import IconsPage from './pages/IconsPage';
+
 
 function App() {
   const [items, setItems] = React.useState([
@@ -202,6 +204,7 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/profile" element={<Login />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/icons" element={<IconsPage />} />
         </Routes>
       </div>
     </AppContext.Provider>

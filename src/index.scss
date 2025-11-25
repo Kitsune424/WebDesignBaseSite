@@ -650,3 +650,152 @@ header {
     display: none !important;
   }
 }
+
+/* LAB11: Стили для страницы иконок */
+
+.icons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #f3f3f3;
+  border-radius: 12px;
+  transition: all .2s ease-in-out;
+  background: #fff;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .1);
+    border-color: #9dd558;
+    
+    .icon-external,
+    .icon-inline {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.icon-external,
+.icon-inline {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 12px;
+  transition: all .2s ease-in-out;
+  color: #333;
+}
+
+/* LAB11: Стили для внешних иконок */
+.icon-external {
+  &:hover {
+    filter: brightness(0.8) sepia(1) hue-rotate(90deg) saturate(5);
+  }
+}
+
+/* LAB11: Стили для кастомных инлайн иконок */
+.icon-inline {
+  &.discount-icon:hover {
+    color: #9dd558;
+    transform: scale(1.1) rotate(-5deg);
+    
+    circle {
+      stroke-width: 4;
+    }
+  }
+  
+  &.delivery-icon:hover {
+    color: #7b68ee;
+    transform: scale(1.1) translateX(5px);
+    
+    rect {
+      stroke-width: 3;
+    }
+    
+    polygon {
+      fill: #ff6b6b;
+    }
+  }
+}
+
+.icon-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+}
+
+.usage-section {
+  background: #f8f9fa;
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 40px;
+}
+
+.usage-examples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.usage-item {
+  h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 18px;
+  }
+}
+
+.code-block {
+  background: #2d2d2d;
+  color: #f8f8f2;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+/* LAB11: Адаптация для мобильных */
+@media (max-width: 768px) {
+  .icons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+  }
+  
+  .icon-external,
+  .icon-inline {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .usage-section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icons-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  
+  .icon-item {
+    padding: 15px 10px;
+  }
+  
+  .icon-name {
+    font-size: 12px;
+  }
+}
