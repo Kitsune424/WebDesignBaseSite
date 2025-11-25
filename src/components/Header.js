@@ -31,11 +31,17 @@ function Header(props) {
             <img width={18} height={18} src="/img/user.svg" alt="Профиль" />
           </Link>
         </li>
-        <li>
+        <li className="mr-20 cu-p">
           <Link to="/orders">
             <img width={18} height={18} src="/img/package.svg" alt="Заказы" />
           </Link>
         </li>
+        <li className="mr-20 cu-p">
+          <Link to="/feedback">
+            <img width={18} height={18} src="/img/chat.svg" alt="Обратная связь" />
+          </Link>
+        </li>
+
       </ul>
     </header>
   );
