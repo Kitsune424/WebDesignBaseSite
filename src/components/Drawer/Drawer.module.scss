@@ -1,11 +1,12 @@
+// Drawer.module.scss
 .overlay {
-  position: absolute;
+  position: fixed; // Изменено с absolute на fixed
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 1000; // Увеличено z-index
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.1s ease-out, visibility 0.1s ease-out;
@@ -24,15 +25,17 @@
 .drawer {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed; // Изменено с absolute на fixed
   width: 420px;
   height: 100%;
   right: 0;
+  top: 0; // Добавлено top: 0
   background: #ffffff;
   box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
   padding: 30px;
   transform: translateX(100%);
   transition: transform 0.3s ease-out;
+  z-index: 1001; // Добавлен z-index
 
   .items {
     flex: 1;
