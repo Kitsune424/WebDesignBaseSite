@@ -9,6 +9,7 @@ import Favorites from './pages/Favorites';
 import Orders from './pages/Orders';
 import Registration from './pages/Registration';
 import Login from './pages/Login'; 
+import FeaturesPage from './pages/FeaturesPage';
 import Feedback from './pages/Feedback';
 import IconsPage from './pages/IconsPage';
 
@@ -203,6 +204,7 @@ function App() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/profile" element={<Login />} />
+          <Route path="/features" element={<FeaturesPage />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/icons" element={<IconsPage />} />
         </Routes>

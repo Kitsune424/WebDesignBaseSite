@@ -42,6 +42,11 @@ function Header(props) {
           </Link>
         </li>
         <li className="mr-20 cu-p">
+          <Link to="/features" aria-label="Функциональность">
+            <img width={18} height={18} src="/img/code.svg" alt="Функции" />
+          </Link>
+        </li>
+        <li className="mr-20 cu-p">
           <Link to="/feedback">
             <img width={18} height={18} src="/img/chat.svg" alt="Обратная связь" />
           </Link>

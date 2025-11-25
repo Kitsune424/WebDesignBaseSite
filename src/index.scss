@@ -799,3 +799,430 @@ header {
     font-size: 12px;
   }
 }
+
+/* LAB11: Анализ CSS стилей */
+/* Градиенты, рамки, подчеркивание, тени, переходы, трансформации */
+/* Flexbox верстка и адаптация */
+
+/* LAB: CSS переменные для темы */
+:root {
+  --bg-primary: #fff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --border-color: #f3f3f3;
+  --accent-color: #9dd558;
+  --accent-secondary: #7b68ee;
+  --shadow: 0 10px 20px rgba(0, 0, 0, .04);
+}
+
+/* LAB: Темная тема */
+[data-theme="dark"] {
+  --bg-primary: #2d3748;
+  --bg-secondary: #4a5568;
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e0;
+  --border-color: #4a5568;
+  --accent-color: #9dd558;
+  --accent-secondary: #7b68ee;
+  --shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #e7f6ff;
+  color: var(--text-primary);
+  transition: background-color .3s ease, color .3s ease;
+}
+
+* {
+  font-family: 'Inter', system-ui;
+}
+
+.wrapper {
+  background: var(--bg-primary);
+  /* LAB8: ТЕНИ - тень блока */
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+  transition: all .3s ease;
+}
+
+header {
+  /* LAB8: РАМКИ - нижняя граница хедера */
+  border-bottom: 1px solid var(--border-color);
+  
+  img {
+    margin-right: 15px;
+  }
+
+  h3,
+  p {
+    margin: 0;
+  }
+}
+
+.content {
+  h1 {
+    margin: 0;
+  }
+}
+
+/* LAB: Стили для страницы функциональности */
+.feature-section {
+  padding: 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  margin-bottom: 40px;
+  background: var(--bg-primary);
+  transition: all .3s ease-in-out;
+  
+  .section-header {
+    margin-bottom: 30px;
+    
+    h2 {
+      color: var(--text-primary);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .opacity-6 {
+      opacity: .6;
+      color: var(--text-secondary);
+    }
+  }
+}
+
+/* LAB: Стили для переключения темы */
+.theme-section {
+  transition: all .3s ease-in-out;
+}
+
+.theme-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.theme-card {
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+  
+  .card-header {
+    background: var(--bg-secondary);
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    
+    h3 {
+      margin: 0;
+      color: var(--text-primary);
+      font-size: 18px;
+    }
+  }
+  
+  .card-content {
+    padding: 20px;
+    
+    p {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.theme-elements {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.theme-button {
+  padding: 10px 20px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all .2s ease-in-out;
+  
+  &:hover {
+    background: #8bc;
+  }
+}
+
+.theme-input-group {
+  .theme-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all .2s ease-in-out;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 2px rgba(157, 213, 88, .1);
+    }
+    
+    &::placeholder {
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.theme-toggle-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: var(--accent-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all .3s ease-in-out;
+  
+  &:hover {
+    background: #6a5acd;
+    transform: translateY(-2px);
+  }
+  
+  .theme-icon {
+    font-size: 18px;
+  }
+}
+
+/* LAB: Стили для формы подписки */
+.subscription-section {
+  .subscription-demo {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.subscription-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.subscription-input {
+  padding: 12px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all .2s ease-in-out;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(157, 213, 88, .1);
+  }
+  
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+}
+
+.subscription-button {
+  padding: 12px 24px;
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  
+  &:hover {
+    background: #8bc;
+    transform: translateY(-1px);
+  }
+}
+
+.subscription-message {
+  margin-top: 20px;
+  padding: 15px;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  color: #155724;
+  text-align: center;
+  
+  [data-theme="dark"] & {
+    background: #1a472a;
+    border-color: #2d5a3a;
+    color: #90ee90;
+  }
+}
+
+/* LAB: Стили для cookies уведомления */
+.cookies-section {
+  .cookies-demo {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.cookies-banner {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all .3s ease-in-out;
+}
+
+.cookies-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.cookies-text {
+  flex: 1;
+  
+  h4 {
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+    font-size: 18px;
+  }
+  
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+}
+
+.cookies-button {
+  padding: 10px 20px;
+  background: var(--accent-secondary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all .2s ease-in-out;
+  white-space: nowrap;
+  
+  &:hover {
+    background: #6a5acd;
+    transform: translateY(-1px);
+  }
+}
+
+.cookies-instruction {
+  padding: 15px;
+  background: #e7f6ff;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-secondary);
+  
+  p {
+    margin: 0;
+    color: var(--text-primary);
+  }
+  
+  [data-theme="dark"] & {
+    background: var(--bg-secondary);
+    border-left-color: var(--accent-color);
+  }
+}
+
+/* LAB: Анимация для jQuery slideUp */
+.cookies-banner {
+  transition: all .3s ease-in-out;
+}
+
+/* LAB: Адаптация для мобильных */
+@media (max-width: 768px) {
+  .feature-section {
+    padding: 20px;
+  }
+  
+  .cookies-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .theme-demo {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content.p-40 {
+    padding: 20px !important;
+  }
+  
+  .feature-section {
+    margin-bottom: 20px;
+  }
+}
+
+/* Остальные существующие стили оставляем ниже */
+.cart-empty {
+  text-align: center;
+
+  p {
+    width: 280px;
+    line-height: 24px;
+  }
+
+  .green-button {
+    width: 245px;
+    margin-top: 20px;
+
+    &:hover {
+      img {
+        /* LAB8: ТРАНСФОРМАЦИИ - поворот и смещение стрелки */
+        transform: rotate(180deg) translateX(3px);
+      }
+    }
+
+    img {
+      position: relative;
+      top: 1px;
+      transform: rotate(180deg);
+      margin-right: 15px;
+      /* LAB8: ПЕРЕХОДЫ - плавная анимация трансформации */
+      transition: transform .15s ease-in-out;
+    }
+  }
+}
+
+/* ДОБАВИТЬ СЮДА ОСТАЛЬНЫЕ СУЩЕСТВУЮЩИЕ СТИЛИ ИЗ ВАШЕГО ФАЙЛА */
+/* Например: .search-block, .registration-form, .login-form, .card и т.д. */
