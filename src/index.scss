@@ -1224,5 +1224,31 @@ header {
   }
 }
 
-/* ДОБАВИТЬ СЮДА ОСТАЛЬНЫЕ СУЩЕСТВУЮЩИЕ СТИЛИ ИЗ ВАШЕГО ФАЙЛА */
-/* Например: .search-block, .registration-form, .login-form, .card и т.д. */
+/* При необходимости поменяй --gif-size: 150px на любой размер */
+.gif-circle {
+  --gif-size: 150px;          /* <-- размер круга, поменяй по желанию */
+  width: var(--gif-size);
+  height: var(--gif-size);
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  flex-shrink: 0;             /* если в flex-контейнере */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Вариант: крутить сам <img> (будет выглядеть как вращающийся контент внутри круга) */
+.gif-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* сохраняет пропорции, обрезает по краям */
+  display: block;
+  transform-origin: 50% 50%;
+  animation: spin 6s linear infinite;
+}
+
+/* Если хочется более мягкого эффекта: добавь ease-in-out и изменяй длительность */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+

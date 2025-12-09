@@ -41,17 +41,16 @@ function Feedback() {
       <div className="d-flex align-center justify-between mb-40">
         <div className="d-flex align-center">
           <h1 style={{ marginRight: '20px' }}>Связаться с нами</h1>
-          <img 
-            src="https://cdn.7tv.app/emote/01GJ5JDNF8000DME7NTZSXDMYV/4x.avif" 
-            alt="Support GIF"
-            style={{
-              width: '650px',
-              height: '150px',
-              borderRadius: '10px'
-            }}
+
+          {/* Круглая крутящаяся гифка */}  
+          <div className="gif-circle" style={{ marginLeft: 20 }}>
+            <img
+              src="https://cdn.7tv.app/emote/01GJ5JDNF8000DME7NTZSXDMYV/4x.avif"
+              alt="Support GIF"
           />
-        </div>
       </div>
+    </div>
+  </div>
 
       <div className="feedback-form-container" style={{ maxWidth: '600px', margin: '0 auto' }}>
         <p className="mb-30 opacity-6">
